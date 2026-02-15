@@ -13,21 +13,19 @@ function Register() {
     e.preventDefault();
 
     try {
-      await api.post("/api/auth/register", {
+      await api.post("/auth/register", {
         username,
         email,
         password,
       });
-      //store token + user info
-       localStorage.setItem("userInfo", JSON.stringify(res.data));
 
-      // after successful registration redirect to home page
-      navigate("/");
+      // after successful registration → go to login
+      navigate("/login");
     } catch (error) {
-  console.log("FULL ERROR:", error);
-  console.log("BACKEND MESSAGE:", error.response?.data);
-}
-
+      console.error(
+        error.response?.data?.message || "Registration failed"
+      );
+    }
   };
 
   return (
