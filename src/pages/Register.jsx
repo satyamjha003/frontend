@@ -24,10 +24,10 @@ function Register() {
       // after successful registration redirect to home page
       navigate("/");
     } catch (error) {
-      console.error(
-        error.response?.data?.message 
-      );
-    }
+  console.log("FULL ERROR:", error);
+  console.log("BACKEND MESSAGE:", error.response?.data);
+}
+
   };
 
   return (
