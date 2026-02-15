@@ -25,7 +25,7 @@ function Register() {
       navigate("/");
     } catch (error) {
       console.error(
-        error.response?.data?.message || "Registration failed"
+        error.response?.data?.message 
       );
     }
   };
