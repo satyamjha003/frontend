@@ -18,9 +18,11 @@ function Register() {
         email,
         password,
       });
+      //store token + user info
+       localStorage.setItem("userInfo", JSON.stringify(res.data));
 
-      // after successful registration → go to login
-      navigate("/login");
+      // after successful registration redirect to home page
+      navigate("/");
     } catch (error) {
       console.error(
         error.response?.data?.message || "Registration failed"
