@@ -12,8 +12,13 @@ function Home() {
   }, []);
 
   const fetchPosts = async () => {
-    const res = await api.get("/posts");
+    try {
+          const res = await api.get("/posts");
     setPosts(res.data);
+    } catch (error) {
+      console.log("Failed to fetch posts",error)
+    }
+
   };
 
   const handleDelete = async (id) => {
